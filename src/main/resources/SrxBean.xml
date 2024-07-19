@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <bean id="student" class="org.servlet.core.spring.srx.Student">
+       <constructor-arg  value="Tina"/>
+       <constructor-arg  value="21"/>
+    </bean>
+
+    <bean id="student1" class="org.servlet.core.spring.srx.Student">
+            <constructor-arg   value ="Samir"/>
+            <constructor-arg   value = "56"/>
+    </bean>
+
+
+
+</beans>
+
+
