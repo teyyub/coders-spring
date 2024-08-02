@@ -28,6 +28,7 @@ public class ProfileConfig {
         }
     }
 
+//    @Bean("pgTemplate")
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
@@ -36,6 +37,7 @@ public class ProfileConfig {
     @Bean
     @Profile("dev")
     public DataSource dataSourceDev() {
+
         return createDataSource("/profiles/application-dev.properties");
     }
 
@@ -60,9 +62,9 @@ public class ProfileConfig {
             dataSource.setUrl(props.getProperty("db.url"));
             dataSource.setUsername(props.getProperty("db.username"));
             dataSource.setPassword(props.getProperty("db.password"));
-            System.out.println(props.getProperty("db.url"));
-            System.out.println(props.getProperty("db.username"));
-            System.out.println(props.getProperty("db.password"));
+//            System.out.println(props.getProperty("db.url"));
+//            System.out.println(props.getProperty("db.username"));
+//            System.out.println(props.getProperty("db.password"));
 
         } catch (IOException e) {
             throw new RuntimeException("Failed to load properties file", e);

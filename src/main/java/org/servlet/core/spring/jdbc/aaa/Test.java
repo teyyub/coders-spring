@@ -17,7 +17,7 @@ public class Test {
         s.setAge(12);
 
 
-        service.insert(s);
+//        service.insert(s);
 
         System.out.println(service.studentById(1));
     }

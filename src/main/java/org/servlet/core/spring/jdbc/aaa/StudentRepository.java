@@ -1,6 +1,7 @@
 package org.servlet.core.spring.jdbc.aaa;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,13 +28,14 @@ public class StudentRepository {
 //        dataSource.setPassword("sa");
 //        return dataSource;
 //    }
-
+//
 //    @Bean
 //    public JdbcTemplate jdbcTemplate() {
 //        return new JdbcTemplate(dataSource());
 //    }
 
     @Autowired
+//    @Qualifier("pgTemplate")
     JdbcTemplate jdbcTemplate;
 
 //    @Autowired
@@ -66,7 +68,7 @@ public class StudentRepository {
     public Student studentById(Integer id){
         Student s = this.jdbcTemplate.queryForObject(
                 "select id, name, age from student where id = ?",
-                new Object[]{id}, mapper);
+                (new Object[]{id}), mapper);
         return s;
     }
 

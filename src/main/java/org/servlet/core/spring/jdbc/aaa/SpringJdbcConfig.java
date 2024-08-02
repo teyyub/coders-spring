@@ -26,17 +26,17 @@ public class SpringJdbcConfig {
     }
 
 
-//    @Bean
-//    public DataSource dataSource()
-//    {
-//        DriverManagerDataSource dataSource
-//                = new DriverManagerDataSource();
-////        dataSource.setDriverClassName("org.h2.Driver");
-//        dataSource.setUrl( "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1");
-//        dataSource.setUsername("sa");
-//        dataSource.setPassword("sa");
-//        return dataSource;
-//    }
+    @Bean
+    public DataSource dataSource()
+    {
+        DriverManagerDataSource dataSource
+                = new DriverManagerDataSource();
+//        dataSource.setDriverClassName("org.h2.Driver");
+        dataSource.setUrl( "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1");
+        dataSource.setUsername("sa");
+        dataSource.setPassword("sa");
+        return dataSource;
+    }
 
 //    @Bean
 //    public JdbcTemplate jdbcTemplate() {
@@ -54,12 +54,17 @@ public class SpringJdbcConfig {
 //        dataSource.setPassword("postgres");
 //        return dataSource;
 //    }
-//    @Bean
-//    public StudentJDBCTemp studentJDBCTemp() {
-//        StudentJDBCTemp studentJDBCTemp = new StudentJDBCTemp();
-//        studentJDBCTemp.setDataSource(dataSource());
-//        return studentJDBCTemp;
-//    }
+    @Bean
+    public StudentJDBCTemp studentJDBCTemp() {
+        StudentJDBCTemp studentJDBCTemp = new StudentJDBCTemp();
+        studentJDBCTemp.setDataSource(dataSource());
+        return studentJDBCTemp;
+    }
+
+    @Bean
+    public Student testStudent(){
+        return new Student();
+    }
 
 //    @Bean
 //    public StudentJDBCTemp postgresqlTemplate() {

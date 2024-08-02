@@ -1,18 +1,20 @@
-package org.servlet.core.spring.jdbc.aaa;
+package org.servlet.core.spring.jpa;
 
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "student" )
 public class Student {
 
     // Class data members
+//    @Basic(fetch=FetchType.LAZY)
     private Integer age;
-    private String name;
-
+    @Column(name= "names", unique = true)
+    public String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    // Constructor
-    public Student() {}
+
 
     // Setters and Getters
     public void setAge(Integer age) { this.age = age; }
@@ -21,22 +23,6 @@ public class Student {
     public String getName() { return name; }
     public void setId(Integer id) { this.id = id; }
     public Integer getId() { return id; }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
     @Override
     public String toString() {

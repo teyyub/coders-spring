@@ -8,8 +8,10 @@ public class TestProfile {
         AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 //        context.scan("org.servlet.core.spring.jdbc.aaa");
         ConfigurableEnvironment environment = context.getEnvironment();
-        environment.setActiveProfiles("prod"); // Set active profile
+        environment.setActiveProfiles("dev"); // Set active profile
         context.register(ProfileConfig.class);
+
+
         context.scan("org.servlet.core.spring.jdbc.aaa");
         context.refresh();
         StudentService service = context.getBean(StudentService.class);
@@ -18,7 +20,7 @@ public class TestProfile {
         Student s = new Student();
         s.setName("test11111");
         s.setAge(34);
-        service.insert(s);
+//        service.insert(s);
         System.out.println(service.studentById(1));
 
     }
