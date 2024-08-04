@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceUtil;
 import java.util.logging.Logger;
 
 
@@ -32,6 +34,7 @@ public class StudentService {
     public void insert(Student student){
         logger.info("insert student : " + student);
         repository.insert(student);
+
         logger.info("id: "+student.getId());
 //        student.setName("test123456");
 //        logger.info("insert student : " + student);
@@ -59,7 +62,18 @@ public class StudentService {
     }
 
     public void deleteById(Integer id){
-        repository.delete(id);
+        repository.deleteById(id);
     }
+
+
+    public void delete(Student student){
+        repository.delete(student);
+    }
+
+    public void deleteAll(){
+        repository.deleteAll();
+    }
+
+
 
 }

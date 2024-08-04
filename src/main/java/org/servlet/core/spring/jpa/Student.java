@@ -1,6 +1,7 @@
 package org.servlet.core.spring.jpa;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "student" )
@@ -15,6 +16,10 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+//
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="student_id")
+    List<Contact> contacts;
 
     // Setters and Getters
     public void setAge(Integer age) { this.age = age; }
@@ -23,6 +28,14 @@ public class Student {
     public String getName() { return name; }
     public void setId(Integer id) { this.id = id; }
     public Integer getId() { return id; }
+
+    public List<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(List<Contact> contacts) {
+        this.contacts = contacts;
+    }
 
     @Override
     public String toString() {

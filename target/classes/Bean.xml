@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="studentObj" class="org.servlet.core.spring.core.Student"  >
+        <property name="name" value="Semed"></property>
+    </bean>
+
+
+<!--    <bean id="studentObj1" class="org.servlet.core.spring.core.Student"  >-->
+<!--        <property name="name" value="Vurgun"></property>-->
+<!--    </bean>-->
+
+    <bean id="e1111" class="org.servlet.core.spring.core.Employee">
+        <property name="address" ref ="address1"/>
+    </bean>
+
+
+    <bean id="e11" class="org.servlet.core.spring.core.Employee">
+        <constructor-arg value="1" type="int"></constructor-arg>
+        <constructor-arg value="Vurgun" ></constructor-arg>
+        <constructor-arg>
+            <ref bean="address1"/>
+        </constructor-arg>
+    </bean>
+
+
+    <bean id="e111" class="org.servlet.core.spring.core.Employee"  >
+        <constructor-arg value="2" type="int"></constructor-arg>
+        <constructor-arg value="vurgun"></constructor-arg>
+        <constructor-arg>
+            <ref bean="address1" />
+        </constructor-arg>
+    </bean>
+
+    <bean id="e222" class="org.servlet.core.spring.core.Employee"  >
+        <constructor-arg value="3" type="int"></constructor-arg>
+        <constructor-arg value="semed"></constructor-arg>
+        <constructor-arg>
+            <ref bean="address2" />
+        </constructor-arg>
+    </bean>
+
+    <bean id="address1" class="org.servlet.core.spring.core.Address">
+        <constructor-arg value="Azerbaijan"></constructor-arg>
+        <constructor-arg value="Baku"></constructor-arg>
+        <constructor-arg value="Absheron"></constructor-arg>
+    </bean>
+
+    <bean id="address2" class="org.servlet.core.spring.core.Address">
+        <constructor-arg value="Azerbaijan"></constructor-arg>
+        <constructor-arg value="Baku"></constructor-arg>
+        <constructor-arg value="Sumqayit"></constructor-arg>
+    </bean>
+
+</beans>
